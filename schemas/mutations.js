@@ -52,6 +52,26 @@ const RootMutation = new GraphQLObjectType({
           .then(res => res)
           .catch(err => err);
       }
+    },
+    deleteUser: {
+      type: UserType,
+      args: {
+        id: { type: GraphQLID }
+      },
+      resolve(parentValue, args) {
+        
+        const query = `DELETE FROM users
+        WHERE users.id = $1`;
+        // TODO - figure out how to do mutation without returning a value
+        const values = [
+          args.id
+        ];
+
+        return db
+          .any(query, values)
+          .then(res => res)
+          .catch(err => err);
+      }
     }
   }
 });
