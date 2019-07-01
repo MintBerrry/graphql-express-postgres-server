@@ -25,7 +25,7 @@ app.use(
     graphiql: true
   })
 );
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, () =>
   console.log('GraphQL server running on localhost' + PORT)
