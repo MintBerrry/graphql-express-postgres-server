@@ -14,6 +14,8 @@ const schema = new GraphQLSchema({
 
 var app = express();
 app.use( cors() );
+app.get('/test', (req, res) => res.send('Hello World!'))
+
 app.use(
   '/',
   expressGraphQl({
