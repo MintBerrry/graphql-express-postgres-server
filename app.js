@@ -18,6 +18,8 @@ app.use(
   '/',
   expressGraphQl({
     schema: schema,
+    introspection: true,
+    playground: true,
     graphiql: true
   })
 );
