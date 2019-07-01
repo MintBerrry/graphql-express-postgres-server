@@ -14,12 +14,12 @@ const schema = new GraphQLSchema({
 
 var app = express();
 app.use( cors() );
-
-app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://arrogant-chesterfield-45986.herokuapp.com/");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
- });
+});
+
 app.get('/test', (req, res) => res.send('Hello World!'))
 
 app.use(
